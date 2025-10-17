@@ -1,15 +1,16 @@
 import mysql.connector
 from mysql.connector import errorcode
-
+import config
 def create_database():
     connection = None
     cursor = None
     try:
         # Establish connection to MySQL server using credentials from config.py
         connection = mysql.connector.connect(
-            host="localhost",  
-            user="test",
-            password="test"
+            host=config.DB_HOST,
+            port=config.DB_PORT,
+            user=config.DB_USER,
+            password=config.DB_PASSWORD
         )
         cursor = connection.cursor()
 
