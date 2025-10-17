@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS Authors (
 );
 
 -- Creating the Books table
-CREATE TABLE IF NOT EXISTS books (
+CREATE TABLE IF NOT EXISTS Books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(130) NOT NULL,
     author_id INT,
@@ -45,10 +45,10 @@ CREATE TABLE IF NOT EXISTS Order_Details (
     quantity INT NOT NULL,
     unit_price DECIMAL(10, 2),
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-    FOREIGN KEY (book_id) REFERENCES books(book_id)
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
 
 -- Query to check the description of the Books table 
-SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_DEFAULT
+SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE, COLUMN_DEFAULT, COLUMN_TYPE, TABLE_SCHEMA, TABLE_NAME
 FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_NAME = 'books';
+WHERE TABLE_NAME = 'Books';
